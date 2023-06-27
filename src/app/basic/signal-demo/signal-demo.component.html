@@ -2,3 +2,10 @@
 <p>
   Sum of {{ a() }} + {{ counter() }} is <em>{{ sum() }}</em>
 </p>
+<p>
+  Counter 2: {{ computedSignal() }} <button (click)="toggle()">toggle</button>
+</p>
+<app-signal-push [data]="data" [signal]="dataSignal"></app-signal-push>
+<button (click)="inc()">Inc</button>
+<p>Computed 2: {{ computed2() }}</p>
+<p>Parity: {{ parity() }}</p>
