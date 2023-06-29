@@ -1,9 +1,14 @@
 import 'zone.js/dist/zone';
-import { Component } from '@angular/core';
+import { Component, importProvidersFrom } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter, RouterModule } from '@angular/router';
 import { routes } from './app/routes';
+import { provideState, provideStore, StoreModule } from '@ngrx/store';
+import { rootReducer } from './app/store/movie.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { MoviesEffects } from './app/store/movie.effects';
+import { MovieService } from './app/store/movie.service';
 
 @Component({
   selector: 'my-app',
@@ -18,5 +23,14 @@ export class App {
 }
 
 bootstrapApplication(App, {
-  providers: [provideRouter(routes)],
+  providers: [
+    MovieService,
+    provideRouter(routes),
+    /*provideStore(),
+    provideState({ movies: moviesReducer }),*/
+    importProvidersFrom(
+      StoreModule.forRoot(rootReducer),
+      EffectsModule.forRoot(MoviesEffects)
+    ),
+  ],
 });

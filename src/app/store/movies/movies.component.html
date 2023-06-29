@@ -1,0 +1,7 @@
+<h1>Movies</h1>
+<progress *ngIf="loading()"></progress>
+<ul>
+  <li *ngFor="let movie of movies()">
+    {{ movie.title }}
+  </li>
+</ul>

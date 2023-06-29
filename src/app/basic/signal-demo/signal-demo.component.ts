@@ -55,6 +55,7 @@ export class SignalDemoComponent implements OnInit, OnDestroy {
    * makes CD more effective
    * less dependencies
    * cooperates with RxJS
+   * aim is to make CD more effective -> don't depend on Zone.js
    */
   // Where can it be used? -> templates, services, directives, ... everywhere
   // 2 types: writable, read-only
