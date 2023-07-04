@@ -9,14 +9,21 @@ import { rootReducer } from './app/store/movie.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { MoviesEffects } from './app/store/movie.effects';
 import { MovieService } from './app/store/movie.service';
+import { FakeService } from './app/rx/fake.service';
 
 @Component({
   selector: 'my-app',
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
+    <nav>
+      <a routerLink="demo">Basic</a>
+      <a routerLink="movies">Movies</a>
+      <a routerLink="rx">Rx</a>
+    </nav>
     <router-outlet></router-outlet>
   `,
+  styles: [`nav a {display: block}`],
 })
 export class App {
   name = 'Angular';
@@ -25,6 +32,7 @@ export class App {
 bootstrapApplication(App, {
   providers: [
     MovieService,
+    FakeService,
     provideRouter(routes),
     /*provideStore(),
     provideState({ movies: moviesReducer }),*/

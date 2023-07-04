@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store/';
 import { Movie } from './movie';
-import { loadMovies, loadMoviesSucceeded } from './movie.action';
+import { changeRating, loadMovies, loadMoviesSucceeded } from './movie.action';
 
 export enum LoadingState {
   Initial,
@@ -31,7 +31,21 @@ export const moviesReducer = createReducer(
     ...state,
     movies: movies,
     loadingState: { ...state.loadingState, movies: LoadingState.Loaded },
-  }))
+  })),
+  on(changeRating, (state, { payload }) => {
+    const movieIdx = state.movies.findIndex(
+      (movie) => movie.title === payload.title
+    );
+
+    return {
+      ...state,
+      movies: [
+        ...state.movies.slice(0, movieIdx),
+        { ...state.movies[movieIdx], rating: payload.rating },
+        ...state.movies.slice(movieIdx + 1),
+      ],
+    };
+  })
 );
 
 export const rootReducer = {

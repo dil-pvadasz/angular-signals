@@ -1,0 +1,28 @@
+ul {
+  list-style-type: none;
+  width: 40%;
+}
+
+li {
+  margin-block: 10px;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: rgb(188, 188, 241);
+}
+
+li span {
+  display: flex;
+}
+
+li.seen {
+  background-color: rgb(153, 214, 153);
+}
+
+button {
+  border: none;
+  background-color: rgb(207, 207, 207);
+}
+
+button:hover {
+  background-color: gray;
+}

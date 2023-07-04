@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { createAction, props } from '@ngrx/store';
 import { Movie } from './movie';
 
@@ -7,3 +8,8 @@ export const loadMoviesSucceeded = createAction(
   props<{ movies: Movie[] }>()
 );
 export const loadMoviesFailed = createAction('[Movies] Failed');
+
+export const changeRating = createAction(
+  '[Movies] Change Rating',
+  props<{ payload: { title: string; rating: number } }>()
+);

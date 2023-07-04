@@ -3,9 +3,9 @@ import { Observable, of, delay } from 'rxjs';
 import { Movie } from './movie';
 
 export const movies: Movie[] = [
-  { title: 'Star Wars IV.', length: 156 },
-  { title: 'Harry Potter and the chamber of secrets', length: 143 },
-  { title: 'Dr Strange', length: 132 },
+  { title: 'Star Wars IV.', length: 156, rating: 0 },
+  { title: 'Harry Potter and the chamber of secrets', length: 143, rating: 0 },
+  { title: 'Dr Strange', length: 132, rating: 0 },
 ];
 
 @Injectable()

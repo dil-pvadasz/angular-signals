@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let message of messages()" [class.seen]="message.seen">
+    <span>{{ message.title }}</span>
+    <span>{{ message.text }}</span>
+    <button (click)="markSeen(message)">Seen</button>
+  </li>
+</ul>
