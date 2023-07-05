@@ -1,0 +1,27 @@
+.rate {
+  display: flex;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin-block: 15px;
+  padding: 5px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(141, 189, 255);
+}
+
+li span {
+  font-weight: bold;
+}
+
+i {
+  color: rgb(23, 15, 136);
+  margin: 3px;
+  width: 20px;
+  font-size: 25px;
+}

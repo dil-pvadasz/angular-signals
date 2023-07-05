@@ -41,6 +41,13 @@ export class SignalDemoComponent implements OnInit, OnDestroy {
   //                                        type param is optional, initial value required
   public counter: WritableSignal<number> = signal<number>(0);
   private intervalId?: number;
+  public start() {
+    this.intervalId = setInterval(
+      // What if we write value++ instead of ++value??
+      () => this.counter.update((value) => ++value),
+      1000
+    );
+  }
 
   //----> Sum
   public a = signal(2);
@@ -93,7 +100,7 @@ export class SignalDemoComponent implements OnInit, OnDestroy {
   // dynamic: only checks counter2 if show is true
   public computedSignal = computed(() => {
     if (this.show()) {
-      return this.counter2();
+      return this.counter2() * 3;
     } else {
       return '--';
     }
@@ -152,14 +159,6 @@ export class SignalDemoComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     clearInterval(this.intervalId);
     clearInterval(this.intervalId2);
-  }
-
-  public start() {
-    this.intervalId = setInterval(
-      // What if we write value++ instead of ++value??
-      () => this.counter.update((value) => ++value),
-      1000
-    );
   }
 
   public toggle() {

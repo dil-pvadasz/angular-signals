@@ -13,6 +13,6 @@ export class MovieService {
   constructor() {}
 
   public getMovies(): Observable<Movie[]> {
-    return of(movies).pipe(delay(5000));
+    return of(movies).pipe(/*delay(5000)*/);
   }
 }

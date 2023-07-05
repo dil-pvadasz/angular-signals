@@ -2,12 +2,15 @@
 <progress *ngIf="loading()"></progress>
 <ul>
   <li *ngFor="let movie of movies()">
-    <div>
-      <span>{{ movie.title }} ({{ movie.rating }})</span>
+    <span>{{ movie.title }}</span>
+    <span>
+      <i *ngFor="let i of getNums(movie.rating)">&hearts;</i>
+    </span>
+    <div class="rate">
       <input
         type="range"
         [id]="movie.title"
-        value="0"
+        [value]="movie.rating"
         name="volume"
         min="0"
         max="5"

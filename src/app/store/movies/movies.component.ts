@@ -32,4 +32,8 @@ export class MoviesComponent implements OnInit {
       })
     );
   }
+
+  public getNums(rating: number): string[] {
+    return [...'*'.repeat(rating)];
+  }
 }
