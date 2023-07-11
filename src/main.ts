@@ -20,6 +20,7 @@ import { FakeService } from './app/rx/fake.service';
       <a routerLink="demo">Basic</a>
       <a routerLink="movies">Movies</a>
       <a routerLink="rx">Rx</a>
+      <a routerLink="dependency-demo">Dynamic deps</a>
     </nav>
     <router-outlet></router-outlet>
   `,
