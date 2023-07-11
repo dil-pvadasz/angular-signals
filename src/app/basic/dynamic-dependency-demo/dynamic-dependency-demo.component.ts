@@ -5,6 +5,7 @@ import {
   signal,
   WritableSignal,
   computed,
+  effect,
 } from '@angular/core';
 
 @Component({
@@ -27,9 +28,15 @@ export class DynamicDependencyDemoComponent implements OnInit {
     }
   });
 
+  public eff = effect(() => {
+    console.log(this.computedSignal());
+  });
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    /*setInterval(() => this.counter.update((value) => ++value), 1000);*/
+  }
 
   public toggle() {
     this.show.update((value) => !value);
