@@ -8,6 +8,7 @@ import {
   effect,
   WritableSignal,
 } from '@angular/core';
+import { MemoizationPipe } from '../../memoization/memoization.pipe';
 import {
   Data,
   DataSignal,
@@ -17,7 +18,7 @@ import {
 @Component({
   selector: 'app-signal-demo',
   templateUrl: './signal-demo.component.html',
-  imports: [SignalPushComponent],
+  imports: [SignalPushComponent, MemoizationPipe],
   standalone: true,
   styleUrls: ['./signal-demo.component.css'],
 })
@@ -163,5 +164,9 @@ export class SignalDemoComponent implements OnInit, OnDestroy {
 
   public toggle() {
     this.show.update((value) => !value);
+  }
+
+  public upper(text: string): string {
+    return text.toUpperCase();
   }
 }

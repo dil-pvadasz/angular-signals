@@ -9,3 +9,5 @@
 <button (click)="inc()">Inc</button>
 <p>Computed 2: {{ computed2() }}</p>
 <p>Parity: {{ parity() }}</p>
+
+<p>Memoization: {{ upper | memoization: 'apple' }}</p>
